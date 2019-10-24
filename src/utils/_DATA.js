@@ -1,8 +1,13 @@
+import turing from '../images/alan_turing.jpg';
+import neumann from '../images/john_von_neumann.gif';
+import godel from '../images/kurt_godel.jpg';
+
+
 let users = {
-  sarahedo: {
-    id: 'sarahedo',
-    name: 'Sarah Edo',
-    avatarURL: ,
+  alanturing: {
+    id: 'alanturing',
+    name: 'Alan Turing',
+    avatarURL: turing,
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionTwo',
@@ -11,20 +16,20 @@ let users = {
     },
     questions: ['8xf0y6ziyjabvozdd253nd', 'am8ehyc8byjqgar0jgpub9']
   },
-  tylermcginnis: {
-    id: 'tylermcginnis',
-    name: 'Tyler McGinnis',
-    avatarURL: ,
+  johnvonneumann: {
+    id: 'johnvonneumann',
+    name: 'John Von Neumann',
+    avatarURL: neumann,
     answers: {
       "vthrdm985a262al8qx3do": 'optionOne',
       "xj352vofupe1dqz9emx13r": 'optionTwo',
     },
     questions: ['loxhs1bqm25b708cmbf3g', 'vthrdm985a262al8qx3do'],
   },
-  johndoe: {
-    id: 'johndoe',
-    name: 'John Doe',
-    avatarURL: ,
+  kurtgodel: {
+    id: 'kurtgodel',
+    name: 'Kurt Godel',
+    avatarURL: godel,
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
       "vthrdm985a262al8qx3do": 'optionTwo',
