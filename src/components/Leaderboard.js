@@ -1,14 +1,15 @@
 import React from 'react';
+import '../styles/Leaderboard.scss';
 import { connect } from "react-redux";
 import User from './User';
 
 class Leaderboard extends React.Component{
     render(){
         return (
-            <div>
+            <div className="leaderboard">
                 {this.props.userIds.map(
                     user => (
-                        <User id={user.id} score={user.score}/>
+                        <User key={user.id} id={user.id} score={user.score}/>
                     )
                 )}
             </div>

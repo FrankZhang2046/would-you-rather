@@ -9,11 +9,11 @@ const Navbar = props => {
             <Link to='/' className="navbar__homeTab">Home</Link>
             <Link to='/questions/new' className="navbar__newQuestion">New Question</Link>
             <Link to='/leaderboard' className="navbar__leaderboard">Leaderboard</Link>
-            <Link className="navbar__username">{
+            <p className="navbar__username">{
                 props.loggedIn !== undefined ? props.loggedIn.name : 'username'
             }
-            </Link>
-            <Link className="navbar__logout">Logout</Link>
+            </p>
+            <Link to='#' className="navbar__logout">Logout</Link>
             
         </nav>
     )

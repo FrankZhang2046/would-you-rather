@@ -13,10 +13,4 @@ export const handleInitialData = () => dispatch => {
             dispatch(setAuthedUser(AUTHED_ID));
         }
         )
-    
-    // return _getUsers()
-    //     .then(users=>{
-    //         dispatch(receiveUsers(users));
-    //         dispatch(setAuthedUser(AUTHED_ID));
-    //     })
 }
