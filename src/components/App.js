@@ -1,26 +1,32 @@
-import React from 'react';
+import React from "react";
 import { connect } from "react-redux";
 import { handleInitialData } from "../actions/shared";
-import '../styles/App.scss';
-import Navbar from './Navbar';
-import Leaderboard from './Leaderboard';
-import Homescreen from './Homescreen';
-import NewQuestion from './NewQuestion';
+//importing routing modules
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+//importing stylesheet
+import "../styles/App.scss";
+// importing components
+import Navbar from "./Navbar";
+import Leaderboard from "./Leaderboard";
+import Homescreen from "./Homescreen";
+import NewQuestion from "./NewQuestion";
 
-class App extends React.Component{
-  componentDidMount(){
-    const {dispatch} = this.props;
+class App extends React.Component {
+  componentDidMount() {
+    const { dispatch } = this.props;
     dispatch(handleInitialData());
   }
 
-  render(){
+  render() {
     return (
-      <div className="App">
+      <Router className="App">
         <Navbar />
-        <Homescreen />
-        <NewQuestion />
-        <Leaderboard />
-      </div>
+        <Switch>
+          <Route path='/' exact component={Homescreen}/>
+          <Route path='/questions/new' exact component={NewQuestion} />
+          <Route path='/leaderboard' exact component={Leaderboard} />
+        </Switch>
+      </Router>
     );
   }
 }
