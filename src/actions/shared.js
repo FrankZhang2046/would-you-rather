@@ -3,7 +3,7 @@ import { receiveUsers } from "./users";
 import { receiveQuestions } from "./questions";
 import { setAuthedUser } from "./authedUser";
 
-const AUTHED_ID = 'alanturing';
+const AUTHED_ID = 'williamgibson';
 
 export const handleInitialData = () => dispatch => {
     Promise.all([_getUsers(), _getQuestions()])
