@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 const Homescreen = props => {
     return(
         <div className="homescreen">
-            
+            This is the homescren
         </div>
     )
 }

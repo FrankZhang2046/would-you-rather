@@ -5,6 +5,7 @@ import '../styles/App.scss';
 import Navbar from './Navbar';
 import Leaderboard from './Leaderboard';
 import Homescreen from './Homescreen';
+import NewQuestion from './NewQuestion';
 
 class App extends React.Component{
   componentDidMount(){
@@ -17,6 +18,7 @@ class App extends React.Component{
       <div className="App">
         <Navbar />
         <Homescreen />
+        <NewQuestion />
         <Leaderboard />
       </div>
     );
