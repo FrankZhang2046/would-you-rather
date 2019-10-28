@@ -8,7 +8,7 @@ class Leaderboard extends React.Component{
             <div>
                 {this.props.userIds.map(
                     user => (
-                        <User id={user}/>
+                        <User id={user.id} score={user.score}/>
                     )
                 )}
             </div>
@@ -21,12 +21,13 @@ const mapStateToProps = (state, ownProps) => {
     let userIds = [];
     Object.keys(users).map(
         user=>{
-           return userIds.push(users[user].id)
+            const score = Object.keys(users[user].answers).length + Object.keys(users[user].questions).length;
+           return userIds.push({id: users[user].id, score})
         }
     )
 
     return {
-        userIds,
+        userIds: userIds.sort((a, b) => b.score - a.score)
     }
 }
 

@@ -1,0 +1,18 @@
+.user{
+    display: flex;
+    margin-left: 40vw;
+
+    &__portrait{
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: top;
+    }
+
+    &__text{
+        &--name{
+            font-weight: bold;
+        }
+    }
+}
