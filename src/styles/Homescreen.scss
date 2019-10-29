@@ -1,4 +1,7 @@
 .homescreen{
+    display: flex;
+    flex-direction: column;
+
     &__title{
         display: flex;
 
@@ -8,5 +11,10 @@
         &--answered{
             margin-left: 20px;
         }
+    }
+
+    &__display{
+        display: flex;
+        flex-direction: column;
     }
 }

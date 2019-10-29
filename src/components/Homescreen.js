@@ -4,16 +4,27 @@ import { connect } from "react-redux";
 
 class Homescreen extends React.Component {
     state={
-        display: '',
+        display: 'answered',
+    }
+
+    toggleDisplay = e => {
+        this.setState({display: e.target.textContent});
     }
 
     render(){
         return(
             <div className="homescreen">
                 <div className="homescreen__title">
-                    <p className="homescreen__title--unanswered">UNANSWERED</p>
-                    <p className="homescreen__title--answered">ANSWERED</p>
+                    <p className="homescreen__title--unanswered"name="unanswered" onClick={this.toggleDisplay}>unAnswered</p>
+                    <p className="homescreen__title--answered" name="answered" onClick={this.toggleDisplay}>answered</p>
                 </div>
+                <div className="homescreen__display">
+                        {
+                            this.props[this.state.display].map(
+                                question => <li>{this.props.questions[question].optionOne.text + ' ' + this.props.questions[question].optionTwo.text}</li>
+                            )
+                        }
+                    </div>
             </div>
         )
     }
