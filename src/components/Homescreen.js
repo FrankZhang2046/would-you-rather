@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/Homescreen.scss';
 import { connect } from "react-redux";
+import Question from './Question';
 
 class Homescreen extends React.Component {
     state={
@@ -21,7 +22,7 @@ class Homescreen extends React.Component {
                 <div className="homescreen__display">
                         {
                             this.props[this.state.display].map(
-                                question => <li>{this.props.questions[question].optionOne.text + ' ' + this.props.questions[question].optionTwo.text}</li>
+                                question => <Question id={question}/>
                             )
                         }
                     </div>
