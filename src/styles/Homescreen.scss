@@ -1,0 +1,12 @@
+.homescreen{
+    &__title{
+        display: flex;
+
+        &--unanswered{
+            margin-left: 20px;
+        }
+        &--answered{
+            margin-left: 20px;
+        }
+    }
+}
