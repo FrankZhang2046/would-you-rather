@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 class Homescreen extends React.Component {
     state={
-        display: 'answered',
+        display: 'unAnswered',
     }
 
     toggleDisplay = e => {
