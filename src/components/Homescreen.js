@@ -31,18 +31,19 @@ class Homescreen extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    const {questions} = state;
+    const {questions ,authedUser} = state;
     let answered = [];
     let unAnswered = [];
     answered = Object.keys(questions).filter(
-        question => questions[question].optionOne.votes.length > 0 || questions[question].optionTwo.votes.length > 0
+        question => questions[question].optionOne.votes.includes(authedUser) || questions[question].optionTwo.votes.includes(authedUser)
     );
 
     unAnswered = Object.keys(questions).filter(
-        question => questions[question].optionOne.votes.length === 0 && questions[question].optionTwo.votes.length === 0
+        question => questions[question].optionOne.votes.includes(authedUser) === false || questions[question].optionTwo.votes.includes(authedUser) === false
     );
 
     return {
+        authedUser,
         answered,
         questions,
         unAnswered,
