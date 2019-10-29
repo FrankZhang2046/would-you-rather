@@ -1,5 +1,5 @@
-import { _saveQuestion } from "../utils/_DATA";
-
+import { _saveQuestion, _getUsers } from "../utils/_DATA";
+import { receiveUsers } from "./users";
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS';
 export const SAVE_QUESTION = 'SAVE_QUESTION';
 
@@ -26,7 +26,8 @@ export const handleSaveQuestion = (optionOneText, optionTwoText, author) => disp
 
     return _saveQuestion(question)
         .then(formattedQuestion => {
-            console.log(formattedQuestion);
             dispatch(saveQuestion(formattedQuestion));
+            _getUsers()
+                .then(users => dispatch(receiveUsers(users)));
         })
 }

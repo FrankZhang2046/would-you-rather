@@ -29,6 +29,8 @@ class NewQuestion extends React.Component{
         const optionTwoText = this.state.optionTwoText;
 
         dispatch(handleSaveQuestion(optionOneText, optionTwoText, authedUser));
+
+        this.setState({optionOneText: '', optionTwoText: '',})
     }
 
     render(){
