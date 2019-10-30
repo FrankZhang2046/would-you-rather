@@ -1,9 +1,10 @@
 import React from "react";
 import "../styles/Question.scss";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Question = props => {
-  const { author, question } = props;
+  const { author, question, status } = props;
 
   return (
     <div className="question">
@@ -25,6 +26,7 @@ const Question = props => {
           </div>
         </div>
       </div>
+      {status === 'unAnswered' ? <Link to={`questions/${question.id}`} className="question__voteButton">VOTE</Link> : null}
     </div>
   );
 };

@@ -10,6 +10,7 @@ import Navbar from "./Navbar";
 import Leaderboard from "./Leaderboard";
 import Homescreen from "./Homescreen";
 import NewQuestion from "./NewQuestion";
+import Poll from "./Poll";
 
 class App extends React.Component {
   componentDidMount() {
@@ -23,8 +24,9 @@ class App extends React.Component {
         <Navbar />
         <Switch>
           <Route path='/' exact component={Homescreen}/>
-          <Route path='/questions/new' exact component={NewQuestion} />
+          <Route path='/add' exact component={NewQuestion} />
           <Route path='/leaderboard' exact component={Leaderboard} />
+          <Route path={`/questions/:question_id`} component={Poll} />
         </Switch>
       </Router>
     );

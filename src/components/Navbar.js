@@ -7,7 +7,7 @@ const Navbar = props => {
     return(
         <nav className="navbar">
             <Link to='/' className="navbar__homeTab">Home</Link>
-            <Link to='/questions/new' className="navbar__newQuestion">New Question</Link>
+            <Link to='/add' className="navbar__newQuestion">New Question</Link>
             <Link to='/leaderboard' className="navbar__leaderboard">Leaderboard</Link>
             <p className="navbar__username">{
                 props.loggedIn !== undefined ? props.loggedIn.name : 'username'
