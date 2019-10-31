@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/Poll.scss";
+import { handleSaveQuestionAnswer } from "../actions/questions";
 import { connect } from "react-redux";
 
 class Poll extends React.Component {
@@ -9,7 +10,8 @@ class Poll extends React.Component {
 
   handleSubmit = e => {
       e.preventDefault();
-      console.log(this.state.selectedOption);
+      const { question, dispatch, authedUser } = this.props;
+      dispatch(handleSaveQuestionAnswer(authedUser, question.id, this.state.selectedOption))
   }
 
   handleChange = e => {
@@ -29,25 +31,25 @@ class Poll extends React.Component {
               alt="author-avatar"
             />
             <form className="poll__voting" onSubmit={this.handleSubmit}>
-              <label htmlFor="option1">
+              <label htmlFor="optionOne">
                 <input
                   type="radio"
-                  name="option1"
-                  id="option1"
-                  value="option1"
+                  name="optionOne"
+                  id="optionOne"
+                  value="optionOne"
                   onChange={this.handleChange}
-                  checked={this.state.selectedOption === "option1"}
+                  checked={this.state.selectedOption === "optionOne"}
                 />
                 {question.optionOne.text}
               </label>
               <label htmlFor="optionTwo">
                 <input
                   type="radio"
-                  name="option2"
-                  id="option2"
-                  value="option2"
+                  name="optionTwo"
+                  id="optionTwo"
+                  value="optionTwo"
                   onChange={this.handleChange}
-                  checked={this.state.selectedOption === "option2"}
+                  checked={this.state.selectedOption === "optionTwo"}
                 />
                 {question.optionTwo.text}
               </label>
@@ -63,6 +65,7 @@ class Poll extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   const { question_id } = ownProps.match.params;
   const question = state.questions[question_id];
+  const {authedUser} = state;
   let author;
   if (question !== undefined) {
     author = state.users[question.author];
@@ -70,7 +73,8 @@ const mapStateToProps = (state, ownProps) => {
 
   return {
     question,
-    author
+    author,
+    authedUser,
   };
 };
 

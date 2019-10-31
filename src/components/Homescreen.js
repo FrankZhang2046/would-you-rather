@@ -40,7 +40,7 @@ const mapStateToProps = (state, ownProps) => {
     );
 
     unAnswered = Object.keys(questions).filter(
-        question => questions[question].optionOne.votes.includes(authedUser) === false || questions[question].optionTwo.votes.includes(authedUser) === false
+        question => questions[question].optionOne.votes.includes(authedUser) === false && questions[question].optionTwo.votes.includes(authedUser) === false
     );
 
     return {
