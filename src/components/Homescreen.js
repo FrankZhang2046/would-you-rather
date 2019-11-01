@@ -22,7 +22,7 @@ class Homescreen extends React.Component {
                 <div className="homescreen__display">
                         {
                             this.props[this.state.display].map(
-                                question => <Question id={question} status={this.state.display}/>
+                                question => <Question key={question} id={question} status={this.state.display}/>
                             )
                         }
                     </div>
