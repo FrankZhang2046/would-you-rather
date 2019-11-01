@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/Poll.scss";
 import { handleSaveQuestionAnswer } from "../actions/questions";
 import { connect } from "react-redux";
+import Form from './Form';
 
 class Poll extends React.Component {
   state = {
@@ -30,31 +31,7 @@ class Poll extends React.Component {
               src={author.avatarURL}
               alt="author-avatar"
             />
-            <form className="poll__voting" onSubmit={this.handleSubmit} style={answered === true ? {'display':'none'} : null}>
-              <label htmlFor="optionOne">
-                <input
-                  type="radio"
-                  name="optionOne"
-                  id="optionOne"
-                  value="optionOne"
-                  onChange={this.handleChange}
-                  checked={this.state.selectedOption === "optionOne"}
-                />
-                {question.optionOne.text}
-              </label>
-              <label htmlFor="optionTwo">
-                <input
-                  type="radio"
-                  name="optionTwo"
-                  id="optionTwo"
-                  value="optionTwo"
-                  onChange={this.handleChange}
-                  checked={this.state.selectedOption === "optionTwo"}
-                />
-                {question.optionTwo.text}
-              </label>
-              <button type="submit" >SUBMIT</button>
-            </form>
+            <Form question={question} submit={this.handleSubmit} change={this.handleChange} selectedOption={this.state.selectedOption}/>
           </div>
         </div>
       );
