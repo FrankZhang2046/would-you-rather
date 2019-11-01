@@ -1,4 +1,4 @@
-import { _saveQuestion, _getUsers, _getQuestions, _saveQuestionAnswer } from "../utils/_DATA";
+import { _saveQuestion, _getUsers, _saveQuestionAnswer } from "../utils/_DATA";
 import { receiveUsers } from "./users";
 import { handleInitialData } from "./shared";
 export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS";
