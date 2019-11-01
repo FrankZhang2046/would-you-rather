@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import Question from './Question';
 
 class Homescreen extends React.Component {
-    state={
+    state= {
         display: 'unAnswered',
     }
 
@@ -32,7 +32,7 @@ class Homescreen extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    const {questions ,authedUser} = state;
+    const {questions, authedUser} = state;
     let answered = [];
     let unAnswered = [];
     answered = Object.keys(questions).filter(

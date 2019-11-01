@@ -26,7 +26,7 @@ const Question = props => {
           </div>
         </div>
       </div>
-      {status === 'unAnswered' ? <Link to={`questions/${question.id}`} className="question__voteButton">VOTE</Link> : null}
+      <Link to={`questions/${question.id}`} className="question__voteButton">{status === 'unAnswered' ? 'VOTE' : 'VIEW POLL'}</Link>
     </div>
   );
 };
