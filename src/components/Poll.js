@@ -67,14 +67,24 @@ const mapStateToProps = (state, ownProps) => {
   const question = state.questions[question_id];
   const {authedUser} = state;
   let author;
-  if (question !== undefined) {
+  let answered;
+
+  if (question !== undefined && authedUser !== undefined) {
     author = state.users[question.author];
+
+    if (question.optionOne.votes.includes(authedUser) || question.optionTwo.votes.includes(authedUser)) {
+        answered = true;
+    } else {
+        answered = false;
+    }
   }
+  
 
   return {
     question,
     author,
     authedUser,
+    answered,
   };
 };
 
