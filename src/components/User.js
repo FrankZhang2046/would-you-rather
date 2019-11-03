@@ -11,14 +11,21 @@ class User extends React.Component {
     this.setState({display: this.props.display})
   }
 
+  handleClick = e => {
+    if (this.props.click) {
+      const {click} = this.props;
+      click(this.props.user.id);
+    }
+  }
+
   render() {
     const { name, avatarURL, answers, questions} = this.props.user;
-    const {score} = this.props
+    const {score, } = this.props
     const answeredScore = Object.keys(answers).length;
     const createdScore = Object.keys(questions).length;
 
     return (
-      <div className="user">
+      <div className="user" onClick={this.handleClick}>
         <img src={avatarURL} alt="user-portrait" className="user__portrait" />
         <div className="user__text">
           <p className="user__text--name">{name}</p>
