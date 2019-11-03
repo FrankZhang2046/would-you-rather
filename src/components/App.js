@@ -11,6 +11,8 @@ import Leaderboard from "./Leaderboard";
 import Homescreen from "./Homescreen";
 import NewQuestion from "./NewQuestion";
 import Poll from "./Poll";
+import PageNotFound from "./PageNotFound";
+import Login from "./Login";
 
 class App extends React.Component {
   componentDidMount() {
@@ -24,9 +26,11 @@ class App extends React.Component {
         <Navbar />
         <Switch>
           <Route path='/' exact component={Homescreen}/>
+          <Route path='/login' exact component={Login} />
           <Route path='/add' exact component={NewQuestion} />
           <Route path='/leaderboard' exact component={Leaderboard} />
           <Route path={`/questions/:question_id`} component={Poll} />
+          <Route component={PageNotFound} />
         </Switch>
       </Router>
     );
