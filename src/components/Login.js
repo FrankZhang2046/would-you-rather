@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from "react-redux";
+import { setAuthedUser } from "../actions/authedUser";
 import User from './User';
 
 class Login extends React.Component{
-    changeAuthedUser(user){
-        console.log(user);
+    changeAuthedUser(userId){
+        const {dispatch} = this.props;
+        dispatch(setAuthedUser(userId))
     }
 
     render(){
@@ -12,7 +14,7 @@ class Login extends React.Component{
 
         return(
             <div className="login">
-                {userIds.map(user => <User id={user} key={user} display={'login'} click={this.changeAuthedUser}/>)}
+                {userIds.map(user => <User id={user} key={user} display={'login'} click={this.changeAuthedUser.bind(this)}/>)}
             </div>
         )
     }
