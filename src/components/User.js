@@ -7,6 +7,10 @@ class User extends React.Component {
     display: 'leaderboard',
   }
 
+  handleClick(){
+    this.props.click(this.props.user.id);
+  }
+
   componentDidMount(){
     this.setState({display: this.props.display})
   }
@@ -19,7 +23,7 @@ class User extends React.Component {
     const createdScore = Object.keys(questions).length;
 
     return (
-      <div className="user" onClick={this.props.click ? ()=>this.props.click(id) : null}>
+      <div className="user" onClick={()=>this.handleClick()}>
         <img src={avatarURL} alt="user-portrait" className="user__portrait" />
         <div className="user__text">
           <p className="user__text--name">{name}</p>

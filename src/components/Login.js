@@ -4,7 +4,7 @@ import { setAuthedUser } from "../actions/authedUser";
 import User from './User';
 
 class Login extends React.Component{
-    changeAuthedUser(userId){
+    changeAuthedUser= userId =>{
         const {dispatch} = this.props;
         dispatch(setAuthedUser(userId))
     }
@@ -14,7 +14,7 @@ class Login extends React.Component{
 
         return(
             <div className="login">
-                {userIds.map(user => <User id={user} key={user} display={'login'} click={this.changeAuthedUser.bind(this)}/>)}
+                {userIds.map(user => <User id={user} key={user} display={'login'} click={this.changeAuthedUser}/>)}
             </div>
         )
     }
