@@ -33,7 +33,7 @@ class Poll extends React.Component {
               alt="author-avatar"
             />
             {answered === true ? 
-                <Result />
+                <Result id={question.id}/>
                 :
                 <Form question={question} submit={this.handleSubmit} change={this.handleChange} selectedOption={this.state.selectedOption}/>}
           </div>
