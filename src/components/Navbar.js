@@ -13,7 +13,7 @@ const Navbar = props => {
                 props.loggedIn !== undefined ? props.loggedIn.name : 'username'
             }
             </p>
-            <Link to='#' className="navbar__logout">Logout</Link>
+            <Link to='/login' className="navbar__logout">Logout</Link>
             
         </nav>
     )
