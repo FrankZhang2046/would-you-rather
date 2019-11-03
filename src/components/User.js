@@ -8,7 +8,7 @@ class User extends React.Component {
   }
 
   handleClick(){
-    this.props.click(this.props.user.id);
+    if(this.props.click){this.props.click(this.props.user.id);}
   }
 
   componentDidMount(){
