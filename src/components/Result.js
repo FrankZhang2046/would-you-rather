@@ -3,6 +3,9 @@ import { connect } from "react-redux";
 
 const Result = props => {
     const {question, authedUser} = props;
+    const optionOneVotes = question.optionOne.votes.length;
+    const optionTwoVotes = question.optionTwo.votes.length;
+    const totalVotes = optionOneVotes + optionTwoVotes;
     let voted;
 
     if (question && question.optionOne.votes.includes(authedUser)) {
@@ -17,9 +20,11 @@ const Result = props => {
             <div className="result__optionOne" style={voted === 'optionOne' ? {'background': 'red'} : null}>
                 {question.optionOne.text}
             </div>
+            <div className="result__optionOne--stats">{optionOneVotes} out of {totalVotes}</div>
             <div className="result__optionTwo" style={voted === 'optionTwo' ? {'background': 'red'} : null}>
                 {question.optionTwo.text}
             </div>
+            <div className="result__optionTwo--stats">{optionTwoVotes} out of {totalVotes}</div>
             <div className="result__optionTwo"></div>
         </div>
     )
