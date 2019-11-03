@@ -3,6 +3,14 @@ import "../styles/User.scss";
 import { connect } from "react-redux";
 
 class User extends React.Component {
+  state={
+    display: 'leaderboard',
+  }
+
+  componentDidMount(){
+    this.setState({display: this.props.display})
+  }
+
   render() {
     const { name, avatarURL, answers, questions} = this.props.user;
     const {score} = this.props
@@ -14,9 +22,15 @@ class User extends React.Component {
         <img src={avatarURL} alt="user-portrait" className="user__portrait" />
         <div className="user__text">
           <p className="user__text--name">{name}</p>
-          <p className="user__text--answered">Answered: {answeredScore}</p>
+          {
+            this.state.display === 'leaderboard' ?
+            <div className="user__text--stats"><p className="user__text--answered">Answered: {answeredScore}</p>
           <p className="user__text--created">Created: {createdScore}</p>
           <p>Score: {score}</p>
+          </div>
+          :
+          null
+          }
         </div>
       </div>
     );

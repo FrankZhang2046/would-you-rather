@@ -9,7 +9,7 @@ class Leaderboard extends React.Component{
             <div className="leaderboard">
                 {this.props.userIds.map(
                     user => (
-                        <User key={user.id} id={user.id} score={user.score}/>
+                        <User key={user.id} id={user.id} score={user.score} display='leaderboard'/>
                     )
                 )}
             </div>

@@ -9,7 +9,7 @@ class Login extends React.Component{
 
         return(
             <div className="login">
-                {userIds.map(user => <User id={user} key={user} />)}
+                {userIds.map(user => <User id={user} key={user} display={'login'}/>)}
             </div>
         )
     }
