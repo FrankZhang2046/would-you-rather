@@ -13,6 +13,7 @@ class Poll extends React.Component {
   handleSubmit = e => {
       e.preventDefault();
       const { question, dispatch, authedUser } = this.props;
+      console.log(question, authedUser);
       dispatch(handleSaveQuestionAnswer(authedUser, question.id, this.state.selectedOption))
   }
 
