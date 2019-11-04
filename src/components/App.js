@@ -33,7 +33,7 @@ class App extends React.Component {
           <Route path='/login' exact component={Login} />
           <Route path='/add' exact component={NewQuestion} />
           <Route path='/leaderboard' exact component={Leaderboard} />
-          <Route path={`/questions/:question_id`} component={Poll} />
+          <Route path={`/questions/:question_id`} exact render={props=><Poll {...props}/>} />
           <Route component={PageNotFound} />
         </Switch>}
       </Router>

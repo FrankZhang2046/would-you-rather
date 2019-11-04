@@ -4,6 +4,7 @@ import { handleSaveQuestionAnswer } from "../actions/questions";
 import { connect } from "react-redux";
 import Form from './Form';
 import Result from './Result';
+import { Redirect } from "react-router-dom";
 
 class Poll extends React.Component {
   state = {
@@ -40,7 +41,10 @@ class Poll extends React.Component {
           </div>
         </div>
       );
-    } else return null;
+    } else {
+      // return <Redirect to='/page-not-found' />
+      return null
+    };
   }
 }
 
