@@ -1,9 +1,11 @@
 import React from 'react';
 import { handleSaveQuestion } from "../actions/questions";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 
 class NewQuestion extends React.Component{
     state = {
+        newQuestionCreated: false,
         optionOneText: '',
         optionTwoText: '',
     }
@@ -30,10 +32,14 @@ class NewQuestion extends React.Component{
 
         dispatch(handleSaveQuestion(optionOneText, optionTwoText, authedUser));
 
-        this.setState({optionOneText: '', optionTwoText: '',})
+        this.setState({optionOneText: '', optionTwoText: '', newQuestionCreated: true});
     }
 
     render(){
+        if(this.state.newQuestionCreated === true){
+            return <Redirect to='/' />
+        }
+        else 
         return(
             <div className="newQuestion">
                 <p className="newQuestion__title">Create New Question</p>
