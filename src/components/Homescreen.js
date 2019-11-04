@@ -13,6 +13,8 @@ class Homescreen extends React.Component {
     }
 
     render(){
+        const {questions} = this.props;
+
         return(
             <div className="homescreen">
                 <div className="homescreen__title">
@@ -21,7 +23,11 @@ class Homescreen extends React.Component {
                 </div>
                 <div className="homescreen__display">
                         {
-                            this.props[this.state.display].map(
+                            this.props[this.state.display]
+                            .sort(
+                                (a, b) => questions[b].timestamp - questions[a].timestamp
+                            )
+                            .map(
                                 question => <Question key={question} id={question} status={this.state.display}/>
                             )
                         }
