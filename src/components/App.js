@@ -24,17 +24,29 @@ class App extends React.Component {
     return (
       <Router className="App">
         <Navbar />
-        <Switch>
+        {
+          this.props.authedUser === null ?
+          <Login />
+          :
+          <Switch>
           <Route path='/' exact component={Homescreen}/>
           <Route path='/login' exact component={Login} />
           <Route path='/add' exact component={NewQuestion} />
           <Route path='/leaderboard' exact component={Leaderboard} />
           <Route path={`/questions/:question_id`} component={Poll} />
           <Route component={PageNotFound} />
-        </Switch>
+        </Switch>}
       </Router>
     );
   }
 }
 
-export default connect()(App);
+const mapStateToProps = (state, ownProps) => {
+  const {authedUser} = state;
+
+  return {
+    authedUser,
+  }
+}
+
+export default connect(mapStateToProps)(App);
