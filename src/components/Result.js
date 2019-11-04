@@ -20,11 +20,11 @@ const Result = props => {
             <div className="result__optionOne" style={voted === 'optionOne' ? {'background': 'red'} : null}>
                 {question.optionOne.text}
             </div>
-            <div className="result__optionOne--stats">{optionOneVotes} out of {totalVotes}</div>
+            <div className="result__optionOne--stats">{optionOneVotes} out of {totalVotes} {Math.round((optionOneVotes / totalVotes) * 100)}%</div>
             <div className="result__optionTwo" style={voted === 'optionTwo' ? {'background': 'red'} : null}>
                 {question.optionTwo.text}
             </div>
-            <div className="result__optionTwo--stats">{optionTwoVotes} out of {totalVotes}</div>
+            <div className="result__optionTwo--stats">{optionTwoVotes} out of {totalVotes} {Math.round((optionTwoVotes / totalVotes) * 100)}%</div>
             <div className="result__optionTwo"></div>
         </div>
     )
