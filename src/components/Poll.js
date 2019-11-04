@@ -26,7 +26,7 @@ class Poll extends React.Component {
     if (author !== undefined) {
       return (
         <div className="poll">
-          <div className="poll__title">{answered === true ? `Asked by ${author.name}` : `${author.name} asks: `}</div>
+          <div className="poll__title" >{answered === true ? `Asked by ${author.name}` : `${author.name} asks: `}</div>
           <div className="poll__content">
             <img
               className="poll__content--avatar"

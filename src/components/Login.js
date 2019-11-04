@@ -10,7 +10,7 @@ class Login extends React.Component{
     changeAuthedUser= userId =>{
         const {dispatch} = this.props;
         dispatch(setAuthedUser(userId));
-        this.setState({loggedIn: true})
+        this.setState({loggedIn: true});
     }
 
     render(){

@@ -18,8 +18,8 @@ class Homescreen extends React.Component {
         return(
             <div className="homescreen">
                 <div className="homescreen__title">
-                    <p className="homescreen__title--unanswered"name="unanswered" onClick={this.toggleDisplay}>unAnswered</p>
-                    <p className="homescreen__title--answered" name="answered" onClick={this.toggleDisplay}>answered</p>
+                    <p className="homescreen__title--unanswered"name="unanswered" onClick={this.toggleDisplay} style={this.state.display === "unAnswered" ? {'background':'yellow'} : null} >unAnswered</p>
+                    <p className="homescreen__title--answered" name="answered" onClick={this.toggleDisplay}style={this.state.display === "answered" ? {'background':'yellow'} : null}>answered</p>
                 </div>
                 <div className="homescreen__display">
                         {

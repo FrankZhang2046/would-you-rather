@@ -17,7 +17,7 @@ class User extends React.Component {
 
 
   render() {
-    const { name, avatarURL, answers, questions, id} = this.props.user;
+    const { name, avatarURL, answers, questions} = this.props.user;
     const {score, } = this.props
     const answeredScore = Object.keys(answers).length;
     const createdScore = Object.keys(questions).length;
